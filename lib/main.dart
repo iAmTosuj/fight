@@ -40,7 +40,9 @@ class MyHomePageState extends State<MyHomePage> {
   BodyPart? attackingBodyPart;
   int yourLives = maxLives;
   int enemyLives = maxLives;
-
+  String youFightInfoText = '';
+  String enemyFightInfoText = '';
+  String gameOverText = '';
   BodyPart whatEnemyAttacks = BodyPart.random();
   BodyPart whatEnemyDefends = BodyPart.random();
 
@@ -64,6 +66,11 @@ class MyHomePageState extends State<MyHomePage> {
                   height: double.infinity,
                   child: ColoredBox(
                     color: Color.fromRGBO(197, 209, 234, 1),
+                    child: InfoBoard(
+                      enemyText: enemyFightInfoText,
+                      youText: youFightInfoText,
+                      gameOverText: gameOverText,
+                    ),
                   )),
             )),
             ControlsWidget(
@@ -91,6 +98,9 @@ class MyHomePageState extends State<MyHomePage> {
   void _onGoButtonClicked() {
     if (_isGameOver()) {
       setState(() {
+        gameOverText = '';
+        youFightInfoText = '';
+        enemyFightInfoText = '';
         enemyLives = maxLives;
         yourLives = maxLives;
       });
@@ -98,16 +108,31 @@ class MyHomePageState extends State<MyHomePage> {
       return;
     }
 
+    final bool enemyLoseLife = attackingBodyPart != whatEnemyDefends;
+    final bool youLoseLife = defendingBodyPart != whatEnemyAttacks;
+
     setState(() {
-      final bool enemyLoseLife = attackingBodyPart != whatEnemyDefends;
-      final bool youLoseLife = defendingBodyPart != whatEnemyAttacks;
+      youFightInfoText = 'Your attack was blocked';
+      enemyFightInfoText = 'Enemy’s attack was blocked';
 
       if (enemyLoseLife) {
         enemyLives -= 1;
+        youFightInfoText = 'Your hit enemy ${attackingBodyPart!.name}';
       }
 
       if (youLoseLife) {
         yourLives -= 1;
+        enemyFightInfoText = 'Enemy hit your ${whatEnemyAttacks.name}';
+      }
+
+      if (_isGameOver()) {
+        if (enemyLives == 0 && yourLives == 0) {
+          gameOverText = 'Draw';
+        } else if (enemyLives == 0) {
+          gameOverText = 'You won';
+        } else if (yourLives == 0) {
+          gameOverText = 'You lost';
+        }
       }
 
       whatEnemyAttacks = BodyPart.random();
@@ -144,6 +169,32 @@ class MyHomePageState extends State<MyHomePage> {
     setState(() {
       attackingBodyPart = value;
     });
+  }
+}
+
+class InfoBoard extends StatelessWidget {
+  final String enemyText;
+  final String youText;
+  final String gameOverText;
+
+  const InfoBoard(
+      {Key? key,
+      required this.enemyText,
+      required this.youText,
+      required this.gameOverText})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Text(
+      gameOverText.length != 0 ? gameOverText : '$youText\n\n$enemyText',
+      style: TextStyle(
+        fontSize: 10,
+        color: FightClubColors.darkGreyText,
+      ),
+      textAlign: TextAlign.center,
+    ));
   }
 }
 
@@ -401,18 +452,15 @@ class LivesWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(overallLivesCount, (index) {
-        if (index < currentLivesCount) {
-          return Image.asset(
-            FightClubIcons.HeartFull,
-            width: 18,
-            height: 18,
-          );
-        }
-        return Image.asset(
-          FightClubIcons.HeartEmpty,
-          width: 18,
-          height: 18,
-        );
+        return Padding(
+            padding: EdgeInsets.only(bottom: index < overallLivesCount ? 4 : 0),
+            child: Image.asset(
+              index < currentLivesCount
+                  ? FightClubIcons.HeartFull
+                  : FightClubIcons.HeartEmpty,
+              width: 18,
+              height: 18,
+            ));
       }),
     );
   }
