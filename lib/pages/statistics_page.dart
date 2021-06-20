@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/resourse/fight_club_colors.dart';
+import 'package:flutter_fight_club/resourses/fight_club_colors.dart';
 import 'package:flutter_fight_club/widgets/secondary_action_button.dart';
 
 class StatisticsPage extends StatelessWidget {
