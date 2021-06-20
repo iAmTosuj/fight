@@ -5,9 +5,9 @@ import 'package:flutter_fight_club/fight_result.dart';
 import 'package:flutter_fight_club/widgets/action_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../resourses/fight_club_colors.dart';
-import '../resourses/fight_club_icons.dart';
-import '../resourses/fight_club_images.dart';
+import '../resources/fight_club_colors.dart';
+import '../resources/fight_club_icons.dart';
+import '../resources/fight_club_images.dart';
 
 class FightPage extends StatefulWidget {
   FightPage({Key? key}) : super(key: key);

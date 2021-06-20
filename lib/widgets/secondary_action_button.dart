@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_fight_club/pages/fight_page.dart';
 
-import '../resourses/fight_club_colors.dart';
+import '../resources/fight_club_colors.dart';
 
 class SecondaryActionButton extends StatelessWidget {
   final String text;
