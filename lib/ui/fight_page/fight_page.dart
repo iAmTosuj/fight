@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/core/fight_result.dart';
+import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/ui/fight_page/controls_widget.dart';
 import 'package:flutter_fight_club/ui/fight_page/fighters_info.dart';
 import 'package:flutter_fight_club/ui/fight_page/info_board.dart';
@@ -37,47 +38,49 @@ class FightPageState extends State<FightPage> {
     return Scaffold(
       backgroundColor: FightClubColors.background,
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            FightersInfo(
-              maxLivesCount: maxLives,
-              enemyLivesCount: enemysLives,
-              yourLivesCount: yourLives,
-            ),
-            Expanded(
-                child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
-              child: SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: ColoredBox(
-                    color: Color.fromRGBO(197, 209, 234, 1),
-                    child: InfoBoard(
-                      enemyText: enemyFightInfoText,
-                      youText: youFightInfoText,
-                      gameOverText: gameOverText,
-                    ),
-                  )),
-            )),
-            ControlsWidget(
-              selectAttackingPart: _selectAttackingPart,
-              selectDefendingPart: _selectDefendingPart,
-              attackingBodyPart: attackingBodyPart,
-              defendingBodyPart: defendingBodyPart,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 14.0),
-              child: ActionButton(
-                text: _isGameOver() ? 'Start new game' : 'GO',
-                color: _isGameOver()
-                    ? FightClubColors.blackButton
-                    : _isAllBtnSelected()
-                        ? FightClubColors.blackButton
-                        : FightClubColors.greyButton,
-                onTap: _onGoButtonClicked,
+        child: SizedBox(
+          child: Column(
+            children: <Widget>[
+              FightersInfo(
+                maxLivesCount: maxLives,
+                enemyLivesCount: enemysLives,
+                yourLivesCount: yourLives,
               ),
-            ),
-          ],
+              Expanded(
+                  child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+                child: SizedBox(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: ColoredBox(
+                      color: Color.fromRGBO(197, 209, 234, 1),
+                      child: InfoBoard(
+                        enemyText: enemyFightInfoText,
+                        youText: youFightInfoText,
+                        gameOverText: gameOverText,
+                      ),
+                    )),
+              )),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 14.0),
+                child: ControlsWidget(
+                  selectAttackingPart: _selectAttackingPart,
+                  selectDefendingPart: _selectDefendingPart,
+                  attackingBodyPart: attackingBodyPart,
+                  defendingBodyPart: defendingBodyPart,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16.0),
+                child: ActionButton(
+                  text: _isGameOver() ? 'Start new game' : 'GO',
+                  color: ResButtonStyle.primary,
+                  disabled: !_isGameOver() && !_isAllBtnSelected(),
+                  onTap: _onGoButtonClicked,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

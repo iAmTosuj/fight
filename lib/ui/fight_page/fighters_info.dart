@@ -61,19 +61,18 @@ class FightersInfo extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                Container(
                   height: 44,
                   width: 44,
-                  child: DecoratedBox(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: FightClubColors.blueButton),
-                      child: Center(
-                        child: Text(
-                          'vs',
-                          style: TextStyle(color: FightClubColors.whiteText),
-                        ),
-                      )),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: FightClubColors.blueButton),
+                  child: Center(
+                    child: Text(
+                      'vs',
+                      style: TextStyle(color: FightClubColors.whiteText),
+                    ),
+                  ),
                 ),
                 Column(
                   children: [

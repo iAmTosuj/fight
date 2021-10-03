@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/ui/widgets/secondary_action_button.dart';
+import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 
 class StatisticsPage extends StatelessWidget {
   const StatisticsPage({Key? key}) : super(key: key);
@@ -8,6 +9,7 @@ class StatisticsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: FightClubColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -23,9 +25,12 @@ class StatisticsPage extends StatelessWidget {
             ),
             Expanded(child: SizedBox()),
             Padding(
-              padding: EdgeInsets.only(bottom: 16),
-              child: SecondaryActionButton(
-                  onTap: () => Navigator.of(context).pop(), text: 'Back'),
+              padding: EdgeInsets.all(8),
+              child: ActionButton(
+                onTap: () => Navigator.of(context).pop(),
+                text: 'Back',
+                color: ResButtonStyle.secondary,
+              ),
             )
           ],
         ),
