@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_fight_club/pages/fight_page.dart';
+import 'package:flutter_fight_club/resources/colors.dart';
+import 'package:flutter_fight_club/ui/fight_page/fight_page.dart';
 
-import '../resources/fight_club_colors.dart';
 
-class SecondaryActionButton extends StatelessWidget {
+class ActionButton extends StatelessWidget {
+  final Color color;
   final String text;
   final VoidCallback onTap;
 
-  const SecondaryActionButton(
-      {Key? key, required this.onTap, required this.text})
+  const ActionButton(
+      {Key? key, required this.onTap, required this.text, required this.color})
       : super(key: key);
 
   @override
@@ -18,15 +19,14 @@ class SecondaryActionButton extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
         height: 40,
-        decoration: BoxDecoration(
-            border: Border.all(color: FightClubColors.darkGreyText, width: 2)),
+        color: color,
         alignment: Alignment.center,
         child: Text(
-          text.toUpperCase(),
+          text,
           style: TextStyle(
               fontWeight: FontWeight.w900,
               fontSize: 16,
-              color: FightClubColors.darkGreyText),
+              color: FightClubColors.whiteText),
         ),
       ),
     );
