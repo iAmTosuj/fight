@@ -74,8 +74,9 @@ class _MainPageContent extends StatelessWidget {
                 text: 'Start'.toUpperCase(),
                 color: ResButtonStyle.primary,
                 onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => FightPage()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => FightPage(),
+                  ));
                 },
               ),
             )
