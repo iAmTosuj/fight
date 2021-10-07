@@ -4,6 +4,18 @@ part of 'fight_page_bloc.dart';
 abstract class FightPageEvent {}
 
 @immutable
-abstract class FightPageSelectDefend extends FightPageEvent {}
+class FightPageSelectDefend extends FightPageEvent {
+  final BodyPart bodyPart;
 
-abstract class FightPageSelectAttack extends FightPageEvent {}
+  FightPageSelectDefend(this.bodyPart);
+}
+
+class FightPageSelectAttack extends FightPageEvent {
+  final BodyPart bodyPart;
+
+  FightPageSelectAttack(this.bodyPart);
+}
+
+class FightPageGo extends FightPageEvent {}
+
+class FightPageResetGame extends FightPageEvent {}

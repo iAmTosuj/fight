@@ -48,4 +48,12 @@ class FightPageState {
         whatEnemyAttacks: whatEnemyAttacks ?? this.whatEnemyAttacks,
         whatEnemyDefends: whatEnemyDefends ?? this.whatEnemyDefends);
   }
+
+  bool isGameOver() {
+    return (this.yourLives == 0 || this.enemyLives == 0);
+  }
+
+  bool isAllBtnSelected() {
+    return !(this.defendingBodyPart == null || this.attackingBodyPart == null);
+  }
 }
