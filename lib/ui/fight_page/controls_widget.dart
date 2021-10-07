@@ -22,54 +22,63 @@ class ControlsWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 16,
-        ),
         Expanded(
-            child: Column(
-              children: [
-                Text('DEFEND',
-                    style: TextStyle(color: FightClubColors.darkGreyText)),
-                SizedBox(
-                  height: 13,
-                ),
-                BodyPartButton(
-                  bodyPart: BodyPart.head,
-                  selected: defendingBodyPart == BodyPart.head,
-                  bodyPartSetter: selectDefendingPart,
-                ),
-                BodyPartButton(
-                  bodyPart: BodyPart.torso,
-                  selected: defendingBodyPart == BodyPart.torso,
-                  bodyPartSetter: selectDefendingPart,
-                ),
-                BodyPartButton(
-                  bodyPart: BodyPart.legs,
-                  selected: defendingBodyPart == BodyPart.legs,
-                  bodyPartSetter: selectDefendingPart,
-                ),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: Text('Defend'.toUpperCase(),
+                        style: TextStyle(color: FightClubColors.darkGreyText)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 14.0),
+                    child: BodyPartButton(
+                      bodyPart: BodyPart.head,
+                      selected: defendingBodyPart == BodyPart.head,
+                      bodyPartSetter: selectDefendingPart,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 14.0),
+                    child: BodyPartButton(
+                      bodyPart: BodyPart.torso,
+                      selected: defendingBodyPart == BodyPart.torso,
+                      bodyPartSetter: selectDefendingPart,
+                    ),
+                  ),
+                  BodyPartButton(
+                    bodyPart: BodyPart.legs,
+                    selected: defendingBodyPart == BodyPart.legs,
+                    bodyPartSetter: selectDefendingPart,
+                  ),
+                ],
+              ),
             )),
-        SizedBox(
-          width: 12,
-        ),
         Expanded(
             child: Column(
               children: [
-                Text('ATTACK',
-                    style: TextStyle(color: FightClubColors.darkGreyText)),
-                SizedBox(
-                  height: 13,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Text('Attack'.toUpperCase(),
+                      style: TextStyle(color: FightClubColors.darkGreyText)),
                 ),
-                BodyPartButton(
-                  bodyPart: BodyPart.head,
-                  selected: attackingBodyPart == BodyPart.head,
-                  bodyPartSetter: selectAttackingPart,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 14.0),
+                  child: BodyPartButton(
+                    bodyPart: BodyPart.head,
+                    selected: attackingBodyPart == BodyPart.head,
+                    bodyPartSetter: selectAttackingPart,
+                  ),
                 ),
-                BodyPartButton(
-                  bodyPart: BodyPart.torso,
-                  selected: attackingBodyPart == BodyPart.torso,
-                  bodyPartSetter: selectAttackingPart,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 14.0),
+                  child: BodyPartButton(
+                    bodyPart: BodyPart.torso,
+                    selected: attackingBodyPart == BodyPart.torso,
+                    bodyPartSetter: selectAttackingPart,
+                  ),
                 ),
                 BodyPartButton(
                   bodyPart: BodyPart.legs,
@@ -78,9 +87,6 @@ class ControlsWidget extends StatelessWidget {
                 ),
               ],
             )),
-        SizedBox(
-          width: 16,
-        )
       ],
     );
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/ui/statistic_page/statistics_page.dart';
+import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
+import 'package:flutter_fight_club/ui/statistic_page/statistics_page.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
-import 'package:flutter_fight_club/ui/widgets/secondary_action_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../fight_page/fight_page.dart';
@@ -26,15 +26,15 @@ class _MainPageContent extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(
-              height: 24,
-            ),
-            Center(
-              child: Text(
-                'The\nFight\nClub'.toUpperCase(),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 30, color: FightClubColors.darkGreyText),
+            Padding(
+              padding: const EdgeInsets.only(top: 24.0),
+              child: Center(
+                child: Text(
+                  'The\nFight\nClub'.toUpperCase(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 30, color: FightClubColors.darkGreyText),
+                ),
               ),
             ),
             Expanded(
@@ -56,19 +56,29 @@ class _MainPageContent extends StatelessWidget {
             Expanded(
               child: SizedBox(),
             ),
-            SecondaryActionButton(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ActionButton(
+                text: 'STATISTICS',
+                color: ResButtonStyle.secondary,
+                border: true,
                 onTap: () => {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => StatisticsPage()))
-                    },
-                text: 'STATISTICS'),
-            ActionButton(
-              text: 'Start'.toUpperCase(),
-              color: FightClubColors.blackButton,
-              onTap: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => FightPage()));
-              },
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => StatisticsPage()))
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ActionButton(
+                text: 'Start'.toUpperCase(),
+                color: ResButtonStyle.primary,
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => FightPage(),
+                  ));
+                },
+              ),
             )
           ],
         ),

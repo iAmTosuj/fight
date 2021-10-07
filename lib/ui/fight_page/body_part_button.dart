@@ -16,8 +16,9 @@ class BodyPartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () => bodyPartSetter(bodyPart),
+      splashColor: FightClubColors.blueButton,
       child: SizedBox(
         height: 40,
         child: DecoratedBox(

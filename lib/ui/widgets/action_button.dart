@@ -1,32 +1,43 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/ui/fight_page/fight_page.dart';
-
 
 class ActionButton extends StatelessWidget {
-  final Color color;
+  final ResButtonStyle color;
   final String text;
   final VoidCallback onTap;
+  final bool border;
+  final bool disabled;
 
   const ActionButton(
-      {Key? key, required this.onTap, required this.text, required this.color})
+      {Key? key,
+      required this.onTap,
+      required this.text,
+      required this.color,
+      this.border = false,
+      this.disabled = false})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16),
-        height: 40,
-        color: color,
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          style: TextStyle(
-              fontWeight: FontWeight.w900,
-              fontSize: 16,
-              color: FightClubColors.whiteText),
+    return Material(
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          height: 40,
+          decoration: BoxDecoration(
+            border: Border.all(color: FightClubColors.darkGreyText, width: 2),
+            color: disabled ? color.bgDisabled : color.bgColor,
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            text,
+            style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 16,
+                color: color.textColor),
+          ),
         ),
       ),
     );
