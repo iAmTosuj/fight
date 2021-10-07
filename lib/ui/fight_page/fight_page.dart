@@ -35,26 +35,39 @@ class FightPage extends StatelessWidget {
                 },
               ),
               Expanded(
+                  child: BlocBuilder<FightPageBloc, FightPageState>(
+                buildWhen: (prev, state) {
+                  return prev.enemyFightInfoText != state.enemyFightInfoText ||
+                      prev.youFightInfoText != state.youFightInfoText ||
+                      prev.gameOverText != state.gameOverText;
+                },
+                builder: (context, state) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+                    child: SizedBox(
+                        width: double.infinity,
+                        height: double.infinity,
+                        child: ColoredBox(
+                          color: Color.fromRGBO(197, 209, 234, 1),
+                          child: InfoBoard(
+                            enemyText: state.enemyFightInfoText,
+                            youText: state.youFightInfoText,
+                            gameOverText: state.gameOverText,
+                          ),
+                        )),
+                  );
+                },
+              )),
+              Expanded(
                 child: BlocBuilder<FightPageBloc, FightPageState>(
+                  buildWhen: (prev, state) {
+                    return prev.attackingBodyPart != state.attackingBodyPart ||
+                        prev.defendingBodyPart != state.defendingBodyPart ||
+                        prev.gameOverText != state.gameOverText;
+                  },
                   builder: (context, state) {
                     return Column(
                       children: [
-                        Expanded(
-                            child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 30),
-                          child: SizedBox(
-                              width: double.infinity,
-                              height: double.infinity,
-                              child: ColoredBox(
-                                color: Color.fromRGBO(197, 209, 234, 1),
-                                child: InfoBoard(
-                                  enemyText: state.enemyFightInfoText,
-                                  youText: state.youFightInfoText,
-                                  gameOverText: state.gameOverText,
-                                ),
-                              )),
-                        )),
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 16, right: 16, bottom: 14.0),
