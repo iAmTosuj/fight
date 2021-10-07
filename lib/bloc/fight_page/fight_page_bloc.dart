@@ -8,7 +8,7 @@ part 'fight_page_state.dart';
 class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
   FightPageBloc() : super(FightPageState()) {
     on<FightPageSelectDefend>((event, emit) {
-      // TODO: implement event handler
+      emit(state.copyWith());
     });
 
     on<FightPageSelectAttack>((event, emit) {

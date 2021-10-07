@@ -26,7 +26,7 @@ class FightPageState {
     this.whatEnemyDefends,
   });
 
-  FightPageState copyWith(
+  FightPageState copyWith({
     BodyPart? defendingBodyPart,
     BodyPart? attackingBodyPart,
     int? yourLives,
@@ -36,7 +36,7 @@ class FightPageState {
     String? gameOverText,
     BodyPart? whatEnemyAttacks,
     BodyPart? whatEnemyDefends,
-  ) {
+  }) {
     return FightPageState(
         defendingBodyPart: defendingBodyPart ?? this.defendingBodyPart,
         attackingBodyPart: attackingBodyPart ?? this.attackingBodyPart,
