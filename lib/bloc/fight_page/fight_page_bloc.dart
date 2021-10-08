@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/core/fight_result.dart';
 import 'package:meta/meta.dart';
@@ -7,7 +8,9 @@ part 'fight_page_event.dart';
 part 'fight_page_state.dart';
 
 class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
-  FightPageBloc()
+  final MainPageBloc _mainPageBloc;
+
+  FightPageBloc(this._mainPageBloc)
       : super(FightPageState(
             whatEnemyDefends: BodyPart.random(),
             whatEnemyAttacks: BodyPart.random())) {
@@ -20,17 +23,7 @@ class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
     });
 
     on<FightPageResetGame>((event, emit) {
-      emit(state.copyWith(
-        attackingBodyPart: null,
-        defendingBodyPart: null,
-        whatEnemyAttacks: BodyPart.random(),
-        whatEnemyDefends: BodyPart.random(),
-        enemyFightInfoText: '',
-        youFightInfoText: '',
-        yourLives: maxLives,
-        enemyLives: maxLives,
-        gameOverText: '',
-      ));
+      emit(state.clearState());
     });
 
     on<FightPageGo>((event, emit) {
@@ -59,13 +52,10 @@ class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
 
       if (fightResult != null) {
         gameOverText = fightResult.result;
+        _mainPageBloc.add(MainPageSetWinner(fightResult.result));
       }
 
-      emit(state.copyWith(
-        attackingBodyPart: null,
-        defendingBodyPart: null,
-        whatEnemyAttacks: BodyPart.random(),
-        whatEnemyDefends: BodyPart.random(),
+      emit(state.nextRound(
         enemyFightInfoText: enemyFightInfoText,
         youFightInfoText: youFightInfoText,
         yourLives: yourLives,

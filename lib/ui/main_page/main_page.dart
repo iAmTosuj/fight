@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:flutter_fight_club/ui/statistic_page/statistics_page.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../fight_page/fight_page.dart';
 
@@ -17,7 +18,7 @@ class MainPage extends StatelessWidget {
 }
 
 class _MainPageContent extends StatelessWidget {
-  const _MainPageContent({Key? key}) : super(key: key);
+  _MainPageContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +41,15 @@ class _MainPageContent extends StatelessWidget {
             Expanded(
               child: SizedBox(),
             ),
-            FutureBuilder<String?>(
-                future: SharedPreferences.getInstance().then(
-                    (sharedPreferences) =>
-                        sharedPreferences.getString('last_fight_result')),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData || snapshot.data == null) {
-                    return const SizedBox();
-                  }
+            BlocBuilder<MainPageBloc, MainPageState>(builder: (context, state) {
+              if (state.fightResult == null) {
+                return const SizedBox();
+              }
 
-                  return Center(
-                    child: Text(snapshot.data!),
-                  );
-                }),
+              return Center(
+                child: Text(state.fightResult!),
+              );
+            }),
             Expanded(
               child: SizedBox(),
             ),
