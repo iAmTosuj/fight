@@ -49,6 +49,38 @@ class FightPageState {
         whatEnemyDefends: whatEnemyDefends ?? this.whatEnemyDefends);
   }
 
+  FightPageState nextRound({
+    required int yourLives,
+    required int enemyLives,
+    required String youFightInfoText,
+    required String enemyFightInfoText,
+    required String gameOverText,
+  }) {
+    return FightPageState(
+        defendingBodyPart: null,
+        attackingBodyPart: null,
+        yourLives: yourLives,
+        enemyLives: enemyLives,
+        youFightInfoText: youFightInfoText,
+        enemyFightInfoText: enemyFightInfoText,
+        gameOverText: gameOverText,
+        whatEnemyAttacks: BodyPart.random(),
+        whatEnemyDefends: BodyPart.random());
+  }
+
+  FightPageState clearState() {
+    return FightPageState(
+        defendingBodyPart: null,
+        attackingBodyPart: null,
+        yourLives: maxLives,
+        enemyLives: maxLives,
+        youFightInfoText: '',
+        enemyFightInfoText: '',
+        gameOverText: '',
+        whatEnemyAttacks: BodyPart.random(),
+        whatEnemyDefends: BodyPart.random());
+  }
+
   bool isGameOver() {
     return (this.yourLives == 0 || this.enemyLives == 0);
   }
