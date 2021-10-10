@@ -52,7 +52,7 @@ class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
 
       if (fightResult != null) {
         gameOverText = fightResult.result;
-        _mainPageBloc.add(MainPageSetWinner(fightResult.result));
+        _mainPageBloc.add(MainPageSetStatus(fightResult));
       }
 
       emit(state.nextRound(

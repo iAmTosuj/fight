@@ -25,9 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<MainPageBloc>(
-            create: (_) => MainPageBloc()
-              ..add(MainPageSetWinner(
-                  Get.find<SharedPrefRepository>().getFightResult()))),
+            create: (_) => MainPageBloc()..add(MainPageInitBloc())),
         BlocProvider<FightPageBloc>(
             create: (context) => FightPageBloc(context.read<MainPageBloc>())),
       ],
