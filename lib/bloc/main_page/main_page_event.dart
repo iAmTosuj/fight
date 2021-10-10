@@ -3,8 +3,10 @@ part of 'main_page_bloc.dart';
 @immutable
 abstract class MainPageEvent {}
 
-class MainPageSetWinner extends MainPageEvent {
-  final String? fightResult;
+class MainPageSetStatus extends MainPageEvent {
+  final FightResult fightResult;
 
-  MainPageSetWinner(this.fightResult);
+  MainPageSetStatus(this.fightResult);
 }
+
+class MainPageInitBloc extends MainPageEvent {}

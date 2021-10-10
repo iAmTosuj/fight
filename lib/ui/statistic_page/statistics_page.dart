@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
@@ -23,7 +25,46 @@ class StatisticsPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(child: SizedBox()),
+            Expanded(child: BlocBuilder<MainPageBloc, MainPageState>(
+              builder: (context, state) {
+                return state.winCount != null &&
+                        state.drawCount != null &&
+                        state.lostCount != null
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Won:'),
+                                  Text(state.winCount.toString())
+                                ]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Draw:'),
+                                  Text(state.drawCount.toString())
+                                ]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text('Lost:'),
+                                  Text(state.lostCount.toString())
+                                ]),
+                          ),
+                        ],
+                      )
+                    : SizedBox();
+              },
+            )),
             Padding(
               padding: EdgeInsets.all(8),
               child: ActionButton(
