@@ -3,10 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/ui/statistic_page/statistics_page.dart';
+import 'package:flutter_fight_club/route/route.dart' as route;
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
-
-import '../fight_page/fight_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -59,10 +57,7 @@ class _MainPageContent extends StatelessWidget {
                 text: 'STATISTICS',
                 color: ResButtonStyle.secondary,
                 border: true,
-                onTap: () => {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => StatisticsPage()))
-                },
+                onTap: () => Navigator.pushNamed(context, route.STATISTIC_PAGE),
               ),
             ),
             Padding(
@@ -70,11 +65,7 @@ class _MainPageContent extends StatelessWidget {
               child: ActionButton(
                 text: 'Start'.toUpperCase(),
                 color: ResButtonStyle.primary,
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => FightPage(),
-                  ));
-                },
+                onTap: () => Navigator.pushNamed(context, route.FIGHT_PAGE),
               ),
             )
           ],
