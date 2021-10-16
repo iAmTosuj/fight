@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/core/models/fooderlich_pages.dart';
-import 'package:flutter_fight_club/route/app_state_manager.dart';
+import 'package:flutter_fight_club/state/app_state_manager.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {

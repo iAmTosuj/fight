@@ -5,7 +5,9 @@ import 'package:flutter_fight_club/core/models/fooderlich_pages.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:flutter_fight_club/route/route.dart' as route;
+import 'package:flutter_fight_club/state/fight_state_manager.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
+import 'package:provider/provider.dart';
 
 class MainPage extends StatelessWidget {
   static MaterialPage page() {
@@ -63,7 +65,9 @@ class MainPage extends StatelessWidget {
               child: ActionButton(
                 text: 'Start'.toUpperCase(),
                 color: ResButtonStyle.primary,
-                onTap: () => Navigator.pushNamed(context, route.FIGHT_PAGE),
+                onTap: () =>
+                    Provider.of<FightStateManager>(context, listen: false)
+                        .setActive(),
               ),
             )
           ],
