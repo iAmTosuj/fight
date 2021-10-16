@@ -4,7 +4,8 @@ import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
 import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/repository/shared_pref_repository.dart';
 import 'package:flutter_fight_club/route/app_route.dart';
-import 'package:flutter_fight_club/route/app_state_manager.dart';
+import 'package:flutter_fight_club/state/app_state_manager.dart';
+import 'package:flutter_fight_club/state/fight_state_manager.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,12 +28,14 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _appStateManager = AppStateManager();
+  final _fightStateManager = FightStateManager();
   late AppRouter _appRouter;
 
   @override
   void initState() {
     _appRouter = AppRouter(
       appStateManager: _appStateManager,
+      fightStateManager: _fightStateManager,
     );
 
     super.initState();
@@ -49,7 +52,10 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => _appStateManager)
+          ChangeNotifierProvider<AppStateManager>(
+              create: (context) => _appStateManager),
+          ChangeNotifierProvider<FightStateManager>(
+              create: (context) => _fightStateManager),
         ],
         child: MaterialApp(
           title: 'Flutter Demo',
