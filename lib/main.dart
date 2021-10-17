@@ -35,7 +35,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     _appRouter = AppRouter(
       appStateManager: _appStateManager,
-      fightStateManager: _fightStateManager,
     );
 
     super.initState();

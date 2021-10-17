@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/state/app_state_manager.dart';
-import 'package:flutter_fight_club/state/fight_state_manager.dart';
 import 'package:flutter_fight_club/ui/fight_page/fight_page_provider.dart';
 import 'package:flutter_fight_club/ui/main_page/main_page.dart';
 import 'package:flutter_fight_club/ui/splash/splash_page.dart';
@@ -12,14 +11,11 @@ class AppRouter extends RouterDelegate
   final GlobalKey<NavigatorState> navigatorKey;
 
   final AppStateManager appStateManager;
-  final FightStateManager fightStateManager;
 
   AppRouter({
     required this.appStateManager,
-    required this.fightStateManager,
   }) : navigatorKey = GlobalKey<NavigatorState>() {
     appStateManager.addListener(notifyListeners);
-    fightStateManager.addListener(notifyListeners);
   }
 
   @override
@@ -30,7 +26,7 @@ class AppRouter extends RouterDelegate
       pages: [
         if (!appStateManager.isInitialized) SplashScreen.page(),
         if (appStateManager.isInitialized) MainPage.page(),
-        if (fightStateManager.isActive) FightPageProvider.page(),
+        if (appStateManager.isFightActive) FightPageProvider.page(),
         // TODO: Add HomeScreed
         // TODO: Add FightScreen
         // TODO: Add StatisticScreen
