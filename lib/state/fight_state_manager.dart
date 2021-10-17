@@ -36,12 +36,6 @@ class FightStateManager extends ChangeNotifier {
     return !(_defendingBodyPart == null || _attackingBodyPart == null);
   }
 
-  void setActive() {
-    _active = true;
-
-    notifyListeners();
-  }
-
   void pressGo() {
     final bool enemyLoseLife = _attackingBodyPart != _whatEnemyDefends;
     final bool youLoseLife = _defendingBodyPart != _whatEnemyAttacks;
