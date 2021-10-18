@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/core/fight_result.dart';
 
 class FightStateManager extends ChangeNotifier {
+  final MainPageBloc _mainPageBloc;
+
+  FightStateManager(this._mainPageBloc);
+
   static const maxLives = 5;
 
   bool _active = false;
@@ -36,7 +41,19 @@ class FightStateManager extends ChangeNotifier {
     return !(_defendingBodyPart == null || _attackingBodyPart == null);
   }
 
-  void pressGo() {
+  void pressGo(BuildContext context) async {
+    if (!isAllBtnSelected() && !isGameOver()) {
+      return;
+    }
+
+    if (isGameOver()) {
+      _clearState();
+      notifyListeners();
+
+      Navigator.pop(context);
+      return;
+    }
+
     final bool enemyLoseLife = _attackingBodyPart != _whatEnemyDefends;
     final bool youLoseLife = _defendingBodyPart != _whatEnemyAttacks;
     var gameOverText = '';
@@ -61,11 +78,7 @@ class FightStateManager extends ChangeNotifier {
     if (fightResult != null) {
       gameOverText = fightResult.result;
 
-      notifyListeners();
-
-      _clearState();
-
-      return;
+      _mainPageBloc.add(MainPageSetStatus(fightResult));
     }
 
     _youFightInfoText = youFightInfoText;
@@ -73,6 +86,8 @@ class FightStateManager extends ChangeNotifier {
     _gameOverText = gameOverText;
     _defendingBodyPart = null;
     _attackingBodyPart = null;
+    _whatEnemyAttacks = BodyPart.random();
+    _whatEnemyDefends = BodyPart.random();
 
     notifyListeners();
   }

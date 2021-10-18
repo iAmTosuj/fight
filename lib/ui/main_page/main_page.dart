@@ -4,7 +4,6 @@ import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/core/models/fooderlich_pages.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/route/route.dart' as route;
 import 'package:flutter_fight_club/state/app_state_manager.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 import 'package:provider/provider.dart';
@@ -57,7 +56,9 @@ class MainPage extends StatelessWidget {
                 text: 'STATISTICS',
                 color: ResButtonStyle.secondary,
                 border: true,
-                onTap: () => Navigator.pushNamed(context, route.STATISTIC_PAGE),
+                onTap: () =>
+                    Provider.of<AppStateManager>(context, listen: false)
+                        .setStatisticActive(),
               ),
             ),
             Padding(

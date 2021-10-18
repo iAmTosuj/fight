@@ -81,7 +81,7 @@ class FightPageProvider extends StatelessWidget {
                             color: ResButtonStyle.primary,
                             disabled: !state.isGameOver() &&
                                 !state.isAllBtnSelected(),
-                            onTap: () => _onGoButtonClicked(context, state),
+                            onTap: () => state.pressGo(context),
                           ),
                         ),
                       ],
@@ -94,22 +94,6 @@ class FightPageProvider extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void _onGoButtonClicked(BuildContext context, FightStateManager state) {
-    if (!state.isAllBtnSelected() && !state.isGameOver()) {
-      return;
-    }
-
-    // if (state.isGameOver()) {
-    //   bloc.add(FightPageResetGame());
-    //
-    //   Navigator.of(context).pop();
-    //
-    //   return;
-    // }
-
-    state.pressGo();
   }
 
   void _selectDefendingPart(final BodyPart value, FightStateManager state) {
