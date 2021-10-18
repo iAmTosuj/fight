@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
+import 'package:flutter_fight_club/core/models/fooderlich_pages.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 
 class StatisticsPage extends StatelessWidget {
+  static MaterialPage page() {
+    return MaterialPage(
+      name: FooderlichPages.statisticPath,
+      key: ValueKey(FooderlichPages.statisticPath),
+      child: StatisticsPage(),
+    );
+  }
+
   const StatisticsPage({Key? key}) : super(key: key);
 
   @override
