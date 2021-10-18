@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/core/models/fooderlich_pages.dart';
+import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:flutter_fight_club/state/app_state_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -28,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: FightClubColors.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
