@@ -47,18 +47,16 @@ class _ApplicationState extends State<Application> {
           ChangeNotifierProvider<FightStateManager>(
               create: (context) => _fightStateManager),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
           title: 'Flutter Fight Club',
           theme: ThemeData(
               primarySwatch: Colors.blue,
               textTheme: GoogleFonts.pressStart2pTextTheme(
                 Theme.of(context).textTheme,
               )),
-          home: Router(
-            routerDelegate: _appRouter,
-            routeInformationParser: _appRouteParser,
-            backButtonDispatcher: RootBackButtonDispatcher(),
-          ),
+          routerDelegate: _appRouter,
+          routeInformationParser: _appRouteParser,
+          backButtonDispatcher: RootBackButtonDispatcher(),
         ),
       ),
     );
