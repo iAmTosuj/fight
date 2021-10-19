@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/route/fooderlich_pages.dart';
+import 'package:flutter_fight_club/route/app_link.dart';
 import 'package:flutter_fight_club/state/app_state_manager.dart';
 import 'package:flutter_fight_club/ui/fight_page/fight_page_provider.dart';
 import 'package:flutter_fight_club/ui/main_page/main_page.dart';
@@ -27,9 +27,11 @@ class AppRouter extends RouterDelegate<AppLink>
       onPopPage: _handlePopPage,
       pages: [
         if (!appStateManager.isInitialized) SplashScreen.page(),
-        if (appStateManager.isInitialized) MainPage.page(),
-        if (appStateManager.isFightActive) FightPageProvider.page(),
-        if (appStateManager.isStatisticActive) StatisticsPage.page(),
+        if (appStateManager.isInitialized) ...[
+          MainPage.page(),
+          if (appStateManager.isFightActive) FightPageProvider.page(),
+          if (appStateManager.isStatisticActive) StatisticsPage.page(),
+        ]
         // TODO: Add HomeScreed
         // TODO: Add FightScreen
         // TODO: Add StatisticScreen
@@ -53,9 +55,6 @@ class AppRouter extends RouterDelegate<AppLink>
   @override
   Future<void> setNewRoutePath(AppLink newLink) async {
     switch (newLink.location) {
-      case AppLink.home:
-        appStateManager.initializeApp();
-        break;
       case AppLink.fightPath:
         appStateManager.closeStatisticActive();
         appStateManager.setFightActive();
@@ -64,6 +63,10 @@ class AppRouter extends RouterDelegate<AppLink>
       case AppLink.statisticPath:
         appStateManager.closeFightActive();
         appStateManager.setFightActive();
+        break;
+      case AppLink.home:
+        appStateManager.closeFightActive();
+        appStateManager.closeStatisticActive();
         break;
       default:
         break;
