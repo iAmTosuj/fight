@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/route/fooderlich_pages.dart';
+import 'package:flutter_fight_club/route/app_link.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 
 class StatisticsPage extends StatelessWidget {
