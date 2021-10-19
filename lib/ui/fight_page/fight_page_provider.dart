@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
-import 'package:flutter_fight_club/core/models/fooderlich_pages.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
+import 'package:flutter_fight_club/route/fooderlich_pages.dart';
 import 'package:flutter_fight_club/state/fight_state_manager.dart';
 import 'package:flutter_fight_club/ui/fight_page/controls_widget.dart';
 import 'package:flutter_fight_club/ui/fight_page/fighters_info.dart';
@@ -15,8 +15,8 @@ import '../../resources/colors.dart';
 class FightPageProvider extends StatelessWidget {
   static MaterialPage page() {
     return MaterialPage(
-      name: FooderlichPages.fightPath,
-      key: ValueKey(FooderlichPages.fightPath),
+      name: AppLink.fightPath,
+      key: ValueKey(AppLink.fightPath),
       child: FightPageProvider(),
     );
   }

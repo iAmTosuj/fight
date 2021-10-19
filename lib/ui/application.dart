@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
 import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
 import 'package:flutter_fight_club/route/app_route.dart';
+import 'package:flutter_fight_club/route/app_route_parser.dart';
 import 'package:flutter_fight_club/state/app_state_manager.dart';
 import 'package:flutter_fight_club/state/fight_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +19,7 @@ class _ApplicationState extends State<Application> {
   final _mainPageBloc = MainPageBloc();
   late FightStateManager _fightStateManager;
   late AppRouter _appRouter;
-
+  final AppRouteParser _appRouteParser = AppRouteParser();
   @override
   void initState() {
     _appRouter = AppRouter(
@@ -55,6 +56,7 @@ class _ApplicationState extends State<Application> {
               )),
           home: Router(
             routerDelegate: _appRouter,
+            routeInformationParser: _appRouteParser,
             backButtonDispatcher: RootBackButtonDispatcher(),
           ),
         ),
