@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
-import 'package:flutter_fight_club/route/fooderlich_pages.dart';
+import 'package:flutter_fight_club/route/app_link.dart';
 import 'package:flutter_fight_club/state/fight_state_manager.dart';
 import 'package:flutter_fight_club/ui/fight_page/controls_widget.dart';
 import 'package:flutter_fight_club/ui/fight_page/fighters_info.dart';
