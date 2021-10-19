@@ -41,13 +41,17 @@ class AppRouter extends RouterDelegate<AppLink>
   AppLink get currentConfiguration => getCurrentPath();
 
   AppLink getCurrentPath() {
-    return AppLink(location: AppLink.fightPath);
+    if (appStateManager.isFightActive) {
+      return AppLink(location: AppLink.fightPath);
+    } else if (appStateManager.isStatisticActive) {
+      return AppLink(location: AppLink.statisticPath);
+    } else {
+      return AppLink(location: AppLink.home);
+    }
   }
 
   @override
   Future<void> setNewRoutePath(AppLink newLink) async {
-    print(newLink.location);
-    print('-----------');
     switch (newLink.location) {
       case AppLink.home:
         appStateManager.initializeApp();

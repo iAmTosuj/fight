@@ -19,7 +19,7 @@ class _ApplicationState extends State<Application> {
   final _mainPageBloc = MainPageBloc();
   late FightStateManager _fightStateManager;
   late AppRouter _appRouter;
-
+  final AppRouteParser _appRouteParser = AppRouteParser();
   @override
   void initState() {
     _appRouter = AppRouter(
@@ -56,7 +56,7 @@ class _ApplicationState extends State<Application> {
               )),
           home: Router(
             routerDelegate: _appRouter,
-            routeInformationParser: AppRouteParser(),
+            routeInformationParser: _appRouteParser,
             backButtonDispatcher: RootBackButtonDispatcher(),
           ),
         ),
