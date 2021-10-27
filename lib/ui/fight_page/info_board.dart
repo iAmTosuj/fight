@@ -8,22 +8,22 @@ class InfoBoard extends StatelessWidget {
 
   const InfoBoard(
       {Key? key,
-        required this.enemyText,
-        required this.youText,
-        required this.gameOverText})
+      required this.enemyText,
+      required this.youText,
+      required this.gameOverText})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Center(
         child: Text(
-          getActualText(),
-          style: TextStyle(
-            fontSize: 10,
-            color: FightClubColors.darkGreyText,
-          ),
-          textAlign: TextAlign.center,
-        ));
+      getActualText(),
+      style: TextStyle(
+        fontSize: 10,
+        color: ResColors.darkGreyText,
+      ),
+      textAlign: TextAlign.center,
+    ));
   }
 
   String getActualText() {

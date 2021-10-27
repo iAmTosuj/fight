@@ -8,9 +8,9 @@ class ResButtonStyle {
 
   ResButtonStyle._(this.bgColor, this.textColor, this.bgDisabled);
 
-  static final primary = ResButtonStyle._(FightClubColors.blackButton,
-      Color(0xFFFFFFFF), FightClubColors.greyButton);
+  static final primary = ResButtonStyle._(
+      ResColors.blackButton, Color(0xFFFFFFFF), ResColors.greyButton);
 
-  static final secondary = ResButtonStyle._(FightClubColors.background,
-      FightClubColors.blackButton, FightClubColors.background);
+  static final secondary = ResButtonStyle._(
+      ResColors.background, ResColors.blackButton, ResColors.background);
 }

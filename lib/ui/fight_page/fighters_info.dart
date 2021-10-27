@@ -26,16 +26,16 @@ class FightersInfo extends StatelessWidget {
               children: [
                 Expanded(
                     child: ColoredBox(
-                      color: Colors.white,
-                    )),
+                  color: Colors.white,
+                )),
                 Expanded(
                     child: DecoratedBox(
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(colors: [
-                            Colors.white,
-                            Color.fromRGBO(197, 209, 234, 1)
-                          ])),
-                    )),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                    Colors.white,
+                    Color.fromRGBO(197, 209, 234, 1)
+                  ])),
+                )),
                 Expanded(
                     child: ColoredBox(color: Color.fromRGBO(197, 209, 234, 1))),
               ],
@@ -51,8 +51,7 @@ class FightersInfo extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Text('You',
-                          style:
-                          TextStyle(color: FightClubColors.darkGreyText)),
+                          style: TextStyle(color: ResColors.darkGreyText)),
                     ),
                     Image.asset(
                       FightClubImages.youAvatar,
@@ -65,12 +64,11 @@ class FightersInfo extends StatelessWidget {
                   height: 44,
                   width: 44,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: FightClubColors.blueButton),
+                      shape: BoxShape.circle, color: ResColors.blueButton),
                   child: Center(
                     child: Text(
                       'vs',
-                      style: TextStyle(color: FightClubColors.whiteText),
+                      style: TextStyle(color: ResColors.whiteText),
                     ),
                   ),
                 ),
@@ -79,8 +77,7 @@ class FightersInfo extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Text('Enemy',
-                          style:
-                          TextStyle(color: FightClubColors.darkGreyText)),
+                          style: TextStyle(color: ResColors.darkGreyText)),
                     ),
                     Image.asset(
                       FightClubImages.enemyAvatar,
