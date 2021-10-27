@@ -16,7 +16,7 @@ class FightPage extends StatelessWidget {
     var bloc = context.read<FightPageBloc>();
 
     return Scaffold(
-      backgroundColor: FightClubColors.background,
+      backgroundColor: ResColors.background,
       body: SafeArea(
         child: SizedBox(
           child: Column(
