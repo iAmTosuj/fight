@@ -24,7 +24,7 @@ class FightPageProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ResColors.background,
+      backgroundColor: ResColors.PURPLE_LIGHT,
       body: SafeArea(
         child: SizedBox(
           child: Column(

@@ -30,7 +30,7 @@ class ControlsWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Text('Defend'.toUpperCase(),
-                    style: TextStyle(color: ResColors.darkGreyText)),
+                    style: TextStyle(color: ResColors.DARK_GREY)),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 14.0),
@@ -62,7 +62,7 @@ class ControlsWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 16.0),
               child: Text('Attack'.toUpperCase(),
-                  style: TextStyle(color: ResColors.darkGreyText)),
+                  style: TextStyle(color: ResColors.DARK_GREY)),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 14.0),

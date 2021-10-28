@@ -21,7 +21,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ResColors.background,
+      backgroundColor: ResColors.PURPLE_LIGHT,
       body: SafeArea(
         child: Column(
           children: [
@@ -31,7 +31,7 @@ class MainPage extends StatelessWidget {
                 child: Text(
                   'The\nFight\nClub'.toUpperCase(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 30, color: ResColors.darkGreyText),
+                  style: TextStyle(fontSize: 30, color: ResColors.DARK_GREY),
                 ),
               ),
             ),
@@ -48,7 +48,7 @@ class MainPage extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: Container(color: ResColors.whiteText),
+                          child: Container(color: ResColors.WHITE),
                         ),
                         Expanded(
                             child: Container(
@@ -87,11 +87,11 @@ class MainPage extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.elliptical(100, 70)),
-                              color: ResColors.blueButton),
+                              color: ResColors.BLUE),
                           child: Center(
                             child: Text(
                               state.fightResult ?? '',
-                              style: TextStyle(color: ResColors.whiteText),
+                              style: TextStyle(color: ResColors.WHITE),
                             ),
                           ),
                         ),

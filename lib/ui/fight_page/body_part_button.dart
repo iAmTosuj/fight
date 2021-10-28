@@ -18,21 +18,21 @@ class BodyPartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => bodyPartSetter(bodyPart),
-      splashColor: ResColors.blueButton,
+      splashColor: ResColors.BLUE,
       child: SizedBox(
         height: 40,
         child: DecoratedBox(
           decoration: BoxDecoration(
-              color: selected ? ResColors.blueButton : Colors.transparent,
+              color: selected ? ResColors.BLUE : Colors.transparent,
               border: !selected
-                  ? Border.all(color: ResColors.darkGreyText, width: 2)
+                  ? Border.all(color: ResColors.DARK_GREY, width: 2)
                   : null),
           child: Center(
             child: Text(
               bodyPart.name.toUpperCase(),
               style: TextStyle(
                   color:
-                      selected ? ResColors.whiteText : ResColors.darkGreyText),
+                      selected ? ResColors.WHITE : ResColors.DARK_GREY),
             ),
           ),
         ),
