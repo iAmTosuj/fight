@@ -20,7 +20,7 @@ class InfoBoard extends StatelessWidget {
       getActualText(),
       style: TextStyle(
         fontSize: 10,
-        color: ResColors.darkGreyText,
+        color: ResColors.DARK_GREY,
       ),
       textAlign: TextAlign.center,
     ));

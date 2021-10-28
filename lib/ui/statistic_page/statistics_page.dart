@@ -20,7 +20,7 @@ class StatisticsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ResColors.background,
+      backgroundColor: ResColors.PURPLE_LIGHT,
       body: SafeArea(
         child: Column(
           children: [
@@ -29,7 +29,7 @@ class StatisticsPage extends StatelessWidget {
               child: Text(
                 'Statistics',
                 style: TextStyle(
-                  color: ResColors.darkGreyText,
+                  color: ResColors.DARK_GREY,
                   fontSize: 24,
                 ),
               ),

@@ -27,7 +27,7 @@ class ActionButton extends StatelessWidget {
         child: Container(
           height: 40,
           decoration: BoxDecoration(
-            border: Border.all(color: ResColors.darkGreyText, width: 2),
+            border: Border.all(color: ResColors.DARK_GREY, width: 2),
             color: disabled ? color.bgDisabled : color.bgColor,
           ),
           alignment: Alignment.center,
