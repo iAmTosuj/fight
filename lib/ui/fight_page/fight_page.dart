@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
-import 'package:flutter_fight_club/ui/fight_page/controls_widget.dart';
-import 'package:flutter_fight_club/ui/fight_page/fighters_info.dart';
-import 'package:flutter_fight_club/ui/fight_page/info_board.dart';
+import 'package:flutter_fight_club/ui/fight_page/widgets/controls_widget.dart';
+import 'package:flutter_fight_club/ui/fight_page/widgets/fighters_info.dart';
+import 'package:flutter_fight_club/ui/fight_page/widgets/info_board.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 
 import '../../resources/colors.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/ui/fight_page/body_part_button.dart';
+import 'package:flutter_fight_club/ui/widgets/body_part_button.dart';
 
 class ControlsWidget extends StatelessWidget {
   final BodyPart? defendingBodyPart;

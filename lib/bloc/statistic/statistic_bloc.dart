@@ -4,14 +4,14 @@ import 'package:flutter_fight_club/repository/shared_pref_repository.dart';
 import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 
-part 'main_page_event.dart';
-part 'main_page_state.dart';
+part 'statistic_event.dart';
+part 'statistic_state.dart';
 
-class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
+class StatisticBloc extends Bloc<StatisticEvent, StatisticState> {
   final SharedPrefRepository _pref = Get.find<SharedPrefRepository>();
 
-  MainPageBloc() : super(MainPageState()) {
-    on<MainPageSetStatus>((event, emit) async {
+  StatisticBloc() : super(StatisticState()) {
+    on<StatisticSetStatus>((event, emit) async {
       switch (event.fightResult) {
         case FightResult.draw:
           await _pref.increaseDraw();
@@ -33,7 +33,7 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
           winCount: _pref.getFightWin()));
     });
 
-    on<MainPageInitBloc>((event, emit) async {
+    on<StatisticInitBloc>((event, emit) async {
       emit(state.copyWith(
           fightResult: _pref.getFightResult(),
           lostCount: _pref.getFightLost(),

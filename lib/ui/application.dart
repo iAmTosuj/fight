@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
-import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
-import 'package:flutter_fight_club/route/app_route.dart';
-import 'package:flutter_fight_club/route/app_route_parser.dart';
-import 'package:flutter_fight_club/state/app_state_manager.dart';
-import 'package:flutter_fight_club/state/fight_state_manager.dart';
+import 'package:flutter_fight_club/bloc/statistic/statistic_bloc.dart';
+import 'package:flutter_fight_club/core/state/app_state_manager.dart';
+import 'package:flutter_fight_club/core/state/fight_state_manager.dart';
+import 'package:flutter_fight_club/core/route/app_route.dart';
+import 'package:flutter_fight_club/core/route/app_route_parser.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,7 @@ class Application extends StatefulWidget {
 
 class _ApplicationState extends State<Application> {
   final _appStateManager = AppStateManager();
-  final _mainPageBloc = MainPageBloc();
+  final _mainPageBloc = StatisticBloc();
   late FightStateManager _fightStateManager;
   late AppRouter _appRouter;
   final AppRouteParser _appRouteParser = AppRouteParser();
@@ -35,10 +35,10 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<MainPageBloc>(
-            create: (_) => _mainPageBloc..add(MainPageInitBloc())),
+        BlocProvider<StatisticBloc>(
+            create: (_) => _mainPageBloc..add(StatisticInitBloc())),
         BlocProvider<FightPageBloc>(
-            create: (context) => FightPageBloc(context.read<MainPageBloc>())),
+            create: (context) => FightPageBloc(context.read<StatisticBloc>())),
       ],
       child: MultiProvider(
         providers: [

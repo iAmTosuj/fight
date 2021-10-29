@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
+import 'package:flutter_fight_club/bloc/statistic/statistic_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/core/fight_result.dart';
 import 'package:meta/meta.dart';
@@ -8,9 +8,9 @@ part 'fight_page_event.dart';
 part 'fight_page_state.dart';
 
 class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
-  final MainPageBloc _mainPageBloc;
+  final StatisticBloc _statisticBloc;
 
-  FightPageBloc(this._mainPageBloc)
+  FightPageBloc(this._statisticBloc)
       : super(FightPageState(
             whatEnemyDefends: BodyPart.random(),
             whatEnemyAttacks: BodyPart.random())) {
@@ -52,7 +52,7 @@ class FightPageBloc extends Bloc<FightPageEvent, FightPageState> {
 
       if (fightResult != null) {
         gameOverText = fightResult.result;
-        _mainPageBloc.add(MainPageSetStatus(fightResult));
+        _statisticBloc.add(StatisticSetStatus(fightResult));
       }
 
       emit(state.nextRound(

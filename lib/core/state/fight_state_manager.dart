@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
+import 'package:flutter_fight_club/bloc/statistic/statistic_bloc.dart';
 import 'package:flutter_fight_club/core/body_part.dart';
 import 'package:flutter_fight_club/core/fight_result.dart';
 
 class FightStateManager extends ChangeNotifier {
-  final MainPageBloc _mainPageBloc;
+  final StatisticBloc _statisticBloc;
 
-  FightStateManager(this._mainPageBloc);
+  FightStateManager(this._statisticBloc);
 
   static const maxLives = 5;
 
@@ -78,7 +78,7 @@ class FightStateManager extends ChangeNotifier {
     if (fightResult != null) {
       gameOverText = fightResult.result;
 
-      _mainPageBloc.add(MainPageSetStatus(fightResult));
+      _statisticBloc.add(StatisticSetStatus(fightResult));
     }
 
     _youFightInfoText = youFightInfoText;
