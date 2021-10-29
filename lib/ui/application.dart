@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_fight_club/bloc/fight_page/fight_page_bloc.dart';
 import 'package:flutter_fight_club/bloc/statistic/statistic_bloc.dart';
-import 'package:flutter_fight_club/core/state/app_state_manager.dart';
-import 'package:flutter_fight_club/core/state/fight_state_manager.dart';
 import 'package:flutter_fight_club/core/route/app_route.dart';
 import 'package:flutter_fight_club/core/route/app_route_parser.dart';
+import 'package:flutter_fight_club/core/state/app_state_manager.dart';
+import 'package:flutter_fight_club/core/state/fight_state_managte_parser.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
