@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:flutter_fight_club/resources/images.dart';
-import 'package:flutter_fight_club/ui/fight_page/lives_widget.dart';
+import 'package:flutter_fight_club/ui/fight_page/widgets/lives_widget.dart';
 
 class FightersInfo extends StatelessWidget {
   final int maxLivesCount;

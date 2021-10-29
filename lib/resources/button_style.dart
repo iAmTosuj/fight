@@ -8,8 +8,8 @@ class ResButtonStyle {
 
   ResButtonStyle._(this.bgColor, this.textColor, this.bgDisabled);
 
-  static final primary = ResButtonStyle._(
-      ResColors.BLACK, Color(0xFFFFFFFF), ResColors.GRAY);
+  static final primary =
+      ResButtonStyle._(ResColors.BLACK, Color(0xFFFFFFFF), ResColors.GRAY);
 
   static final secondary = ResButtonStyle._(
       ResColors.PURPLE_LIGHT, ResColors.BLACK, ResColors.PURPLE_LIGHT);

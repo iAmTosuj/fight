@@ -31,8 +31,7 @@ class BodyPartButton extends StatelessWidget {
             child: Text(
               bodyPart.name.toUpperCase(),
               style: TextStyle(
-                  color:
-                      selected ? ResColors.WHITE : ResColors.DARK_GREY),
+                  color: selected ? ResColors.WHITE : ResColors.DARK_GREY),
             ),
           ),
         ),

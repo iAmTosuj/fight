@@ -1,13 +1,13 @@
-part of 'main_page_bloc.dart';
+part of 'statistic_bloc.dart';
 
-class MainPageState {
+class StatisticState {
   final String? fightResult;
   final bool isInit;
   final int? winCount;
   final int? lostCount;
   final int? drawCount;
 
-  MainPageState({
+  StatisticState({
     this.fightResult,
     this.winCount,
     this.isInit = false,
@@ -15,9 +15,9 @@ class MainPageState {
     this.drawCount,
   });
 
-  MainPageState copyWith(
+  StatisticState copyWith(
       {String? fightResult, int? winCount, int? lostCount, int? drawCount}) {
-    return MainPageState(
+    return StatisticState(
         fightResult: fightResult ?? this.fightResult,
         winCount: winCount ?? this.winCount,
         lostCount: lostCount ?? this.lostCount,

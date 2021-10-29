@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/route/app_link.dart';
+import 'package:flutter_fight_club/core/route/app_link.dart';
 
 class AppRouteParser extends RouteInformationParser<AppLink> {
   @override

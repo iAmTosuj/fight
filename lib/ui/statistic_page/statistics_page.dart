@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_fight_club/bloc/main_page/main_page_bloc.dart';
+import 'package:flutter_fight_club/bloc/statistic/statistic_bloc.dart';
+import 'package:flutter_fight_club/core/route/app_link.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/route/app_link.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 
 class StatisticsPage extends StatelessWidget {
@@ -34,7 +34,7 @@ class StatisticsPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(child: BlocBuilder<MainPageBloc, MainPageState>(
+            Expanded(child: BlocBuilder<StatisticBloc, StatisticState>(
               builder: (context, state) {
                 return state.winCount != null &&
                         state.drawCount != null &&
