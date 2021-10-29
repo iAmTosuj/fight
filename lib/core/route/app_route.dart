@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/core/route/app_link.dart';
-import 'package:flutter_fight_club/core/state/app_state_managernk.dart';
+import 'package:flutter_fight_club/core/state/app_state_manager.dart';
 import 'package:flutter_fight_club/ui/fight_page/widgets/fight_page_provider.dart';
 import 'package:flutter_fight_club/ui/main_page/main_page.dart';
 import 'package:flutter_fight_club/ui/splash/splash_page.dart';

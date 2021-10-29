@@ -5,7 +5,7 @@ import 'package:flutter_fight_club/bloc/statistic/statistic_bloc.dart';
 import 'package:flutter_fight_club/core/route/app_route.dart';
 import 'package:flutter_fight_club/core/route/app_route_parser.dart';
 import 'package:flutter_fight_club/core/state/app_state_manager.dart';
-import 'package:flutter_fight_club/core/state/fight_state_managte_parser.dart';
+import 'package:flutter_fight_club/core/state/fight_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -20,6 +20,7 @@ class _ApplicationState extends State<Application> {
   late FightStateManager _fightStateManager;
   late AppRouter _appRouter;
   final AppRouteParser _appRouteParser = AppRouteParser();
+
   @override
   void initState() {
     _appRouter = AppRouter(

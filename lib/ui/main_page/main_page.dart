@@ -5,7 +5,7 @@ import 'package:flutter_fight_club/core/route/app_link.dart';
 import 'package:flutter_fight_club/core/state/app_state_manager.dart';
 import 'package:flutter_fight_club/resources/button_style.dart';
 import 'package:flutter_fight_club/resources/colors.dart';
-import 'package:flutter_fight_club/resources/imagespp_link.dart';
+import 'package:flutter_fight_club/resources/images.dart';
 import 'package:flutter_fight_club/ui/widgets/action_button.dart';
 import 'package:provider/provider.dart';
 

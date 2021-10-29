@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/core/route/app_link.dart';
 import 'package:flutter_fight_club/core/state/app_state_manager.dart';
-import 'package:flutter_fight_club/resources/colorsink.dart';
+import 'package:flutter_fight_club/resources/colors.dart';
 import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
